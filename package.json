@@ -1,0 +1,23 @@
+{
+  "name": "office-reminders-discord-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for office birthday and anniversary wishes.",
+  "main": "src/index.js",
+  "scripts": {
+    "register-commands": "node scripts/register-commands.js",
+    "start": "node src/index.js",
+    "send-now": "node src/index.js --send-now"
+  },
+  "keywords": [
+    "discord",
+    "birthdays",
+    "anniversaries",
+    "reminders"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0",
+    "node-cron": "^3.0.3"
+  }
+}

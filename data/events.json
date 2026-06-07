@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Yagnesh",
+    "type": "anniversary",
+    "date": "01-01"
+  },
+  {
+    "name": "Aneri",
+    "type": "anniversary",
+    "date": "01-19"
+  },
+  {
+    "name": "Yagnesh",
+    "type": "birthday",
+    "date": "01-26"
+  },
+  {
+    "name": "Aneri",
+    "type": "birthday",
+    "date": "01-28"
+  },
+  {
+    "name": "Sonam",
+    "type": "birthday",
+    "date": "02-26"
+  },
+  {
+    "name": "Arnab",
+    "type": "anniversary",
+    "date": "03-05"
+  },
+  {
+    "name": "Sonam",
+    "type": "anniversary",
+    "date": "04-12"
+  },
+  {
+    "name": "Paddy",
+    "type": "anniversary",
+    "date": "05-05"
+  },
+  {
+    "name": "Aman",
+    "type": "anniversary",
+    "date": "05-15"
+  },
+  {
+    "name": "Yash",
+    "type": "birthday",
+    "date": "05-18"
+  },
+  {
+    "name": "Yash",
+    "type": "anniversary",
+    "date": "06-02"
+  },
+  {
+    "name": "Aman",
+    "type": "birthday",
+    "date": "06-04"
+  },
+  {
+    "name": "Paddy",
+    "type": "birthday",
+    "date": "06-07"
+  },
+  {
+    "name": "Chesna",
+    "type": "anniversary",
+    "date": "07-22"
+  },
+  {
+    "name": "Sakshi",
+    "type": "anniversary",
+    "date": "08-01"
+  },
+  {
+    "name": "Danesh",
+    "type": "anniversary",
+    "date": "08-19"
+  },
+  {
+    "name": "Chesna",
+    "type": "birthday",
+    "date": "10-19"
+  },
+  {
+    "name": "Arnab",
+    "type": "birthday",
+    "date": "11-05"
+  },
+  {
+    "name": "Sakshi",
+    "type": "birthday",
+    "date": "11-15"
+  },
+  {
+    "name": "Danesh",
+    "type": "birthday",
+    "date": "11-18"
+  },
+  {
+    "name": "Adya",
+    "type": "anniversary",
+    "date": "12-01"
+  },
+  {
+    "name": "Adya",
+    "type": "birthday",
+    "date": "12-13"
+  }
+]
