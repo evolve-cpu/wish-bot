@@ -1,9 +1,27 @@
+const express = require("express");
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Wish Bot is running");
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Health server listening on ${PORT}`);
+});
+
 require("dotenv").config();
 
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const cron = require("node-cron");
-const { Client, GatewayIntentBits, PermissionFlagsBits } = require("discord.js");
+const {
+  Client,
+  GatewayIntentBits,
+  PermissionFlagsBits
+} = require("discord.js");
 
 const EVENTS_FILE = path.join(__dirname, "..", "data", "events.json");
 const channelId = process.env.CHANNEL_ID;
@@ -21,11 +39,15 @@ function validateConfig() {
   if (!channelId) missing.push("CHANNEL_ID");
 
   if (missing.length > 0) {
-    throw new Error(`Missing required environment value(s): ${missing.join(", ")}`);
+    throw new Error(
+      `Missing required environment value(s): ${missing.join(", ")}`
+    );
   }
 
   if (!/^\d{2}:\d{2}$/.test(postTime)) {
-    throw new Error("POST_TIME must use 24-hour HH:mm format, for example 09:00.");
+    throw new Error(
+      "POST_TIME must use 24-hour HH:mm format, for example 09:00."
+    );
   }
 }
 
@@ -57,7 +79,9 @@ function validateDate(dateString) {
   const match = /^(?:(\d{4})-)?(\d{2})-(\d{2})$/.exec(dateString);
 
   if (!match) {
-    throw new Error(`Invalid date "${dateString}". Use YYYY-MM-DD or MM-DD format.`);
+    throw new Error(
+      `Invalid date "${dateString}". Use YYYY-MM-DD or MM-DD format.`
+    );
   }
 
   const year = Number(match[1] || 2000);
@@ -107,7 +131,8 @@ function todaysDateParts() {
 }
 
 function buildWish(event, today) {
-  const name = event.mention || (event.userId ? `<@${event.userId}>` : event.name);
+  const name =
+    event.mention || (event.userId ? `<@${event.userId}>` : event.name);
   const count = yearsSince(event.date, today);
 
   if (event.type === "birthday") {
@@ -216,7 +241,9 @@ function ordinalSuffix(number) {
 async function sendTodaysWishes() {
   const events = await readEvents();
   const today = todaysDateParts();
-  const matches = events.filter((event) => monthDay(event.date) === today.monthDay);
+  const matches = events.filter(
+    (event) => monthDay(event.date) === today.monthDay
+  );
 
   if (matches.length === 0) {
     console.log("No birthday or anniversary wishes to send today.");
@@ -238,8 +265,14 @@ async function handleInteraction(interaction) {
   if (!interaction.isChatInputCommand()) return;
 
   try {
-    if (["add-birthday", "add-anniversary", "remove-user"].includes(interaction.commandName)) {
-      const canManageServer = interaction.memberPermissions?.has(PermissionFlagsBits.ManageGuild);
+    if (
+      ["add-birthday", "add-anniversary", "remove-user"].includes(
+        interaction.commandName
+      )
+    ) {
+      const canManageServer = interaction.memberPermissions?.has(
+        PermissionFlagsBits.ManageGuild
+      );
 
       if (!canManageServer) {
         await interaction.reply({
@@ -315,7 +348,8 @@ async function handleInteraction(interaction) {
     console.error("Failed to handle slash command:", error);
 
     const response = {
-      content: error.message || "Something went wrong while handling that command.",
+      content:
+        error.message || "Something went wrong while handling that command.",
       ephemeral: true
     };
 
